@@ -4,7 +4,7 @@ import io.netty.buffer.ByteBuf;
 
 import java.io.IOException;
 
-public interface Packet {
-    public void read( ByteBuf byteBuf ) throws IOException;
-    public void write( ByteBuf byteBuf ) throws IOException;
+public abstract class Packet {
+    public abstract void read( ByteBuf byteBuf ) throws IOException;
+    public abstract void write( ByteBuf byteBuf ) throws IOException;
 }

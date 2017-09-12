@@ -1,38 +1,29 @@
-package de.bluplayz.networkhandler.netty.client;
+package de.bluplayz.networkhandler.netty;
 
 import de.bluplayz.logger.Logger;
-import de.bluplayz.networkhandler.netty.NettyHandler;
-import de.bluplayz.networkhandler.netty.PacketHandler;
+import de.bluplayz.networkhandler.netty.client.NettyClient;
 import de.bluplayz.networkhandler.netty.packet.Packet;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import lombok.Getter;
 
-public class ClientHandler extends SimpleChannelInboundHandler<Packet> {
+public class ChannelHandler extends SimpleChannelInboundHandler<Packet> {
 
-    @Getter
     private Channel channel = null;
-
-    @Getter
     private NettyClient nettyClient;
 
-
-    public ClientHandler( NettyClient client ) {
+    public ChannelHandler( NettyClient client ) {
         nettyClient = client;
     }
 
     protected void channelRead0( ChannelHandlerContext ctx, Packet packet ) throws Exception {
-        for ( PacketHandler handler : NettyHandler.getPacketHandlers() ) {
-            handler.incomingPacket( packet, channel );
-        }
+        de.bluplayz.networkhandler.netty.packet.PacketHandler.incomingPacket( packet, channel, de.bluplayz.networkhandler.netty.packet.PacketHandler.types.CLIENT );
     }
 
     @Override
     public void channelActive( ChannelHandlerContext ctx ) throws Exception {
         Logger.log( "successfully connected to NettyServer" );
         channel = ctx.channel();
-        getNettyClient().setChannel( ctx.channel() );
     }
 
     @Override
@@ -40,6 +31,5 @@ public class ClientHandler extends SimpleChannelInboundHandler<Packet> {
         Logger.log( "disconnected from NettyServer" );
         nettyClient.scheduleConnect( 1000 );
         channel = null;
-        getNettyClient().setChannel( null );
     }
 }
