@@ -1,5 +1,6 @@
 package de.bluplayz.networkhandler.netty.client;
 
+import de.bluplayz.Callback;
 import de.bluplayz.logger.Logger;
 import de.bluplayz.networkhandler.netty.packet.PacketDecoder;
 import de.bluplayz.networkhandler.netty.packet.PacketEncoder;
@@ -47,7 +48,10 @@ public class NettyClient {
         Logger.log( "connecting to netty" );
     }
 
-    public void connect( String host, int port ) {
+    public void connect( String host, int port, Callback callback ) {
+        setHost( host );
+        setPort( port );
+
         pool.execute( () -> {
             EventLoopGroup eventLoopGroup = EPOLL ? new EpollEventLoopGroup() : new NioEventLoopGroup();
             try {
@@ -63,10 +67,10 @@ public class NettyClient {
                             }
                         } );
                 future = bootstrap.connect( host, port );
-                future.sync().channel();
+                
+                callback.accept();
 
-                while ( true ) {
-                }
+                future.sync().channel().closeFuture().syncUninterruptibly();
             } catch ( Exception e ) {
                 channel = null;
                 Logger.error( "failed connecting to netty: " + e.getMessage() );
@@ -93,7 +97,11 @@ public class NettyClient {
                     @Override
                     public void run() {
                         Logger.log( "reconnecting..." );
-                        connect( getHost(), getPort() );
+                        connect( getHost(), getPort(), new Callback() {
+                            @Override
+                            public void accept() {
+                            }
+                        } );
                     }
                 },
                 time

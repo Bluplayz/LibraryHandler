@@ -1,5 +1,6 @@
 package de.bluplayz.networkhandler.netty;
 
+import de.bluplayz.Callback;
 import de.bluplayz.networkhandler.netty.client.NettyClient;
 import de.bluplayz.networkhandler.netty.server.NettyServer;
 import lombok.Getter;
@@ -36,7 +37,7 @@ public class NettyHandler {
         instance = this;
     }
 
-    public void connectToServer( String host, int port ) {
+    public void connectToServer( String host, int port, Callback callback ) {
         type = types.CLIENT;
 
         //close server connection
@@ -50,10 +51,10 @@ public class NettyHandler {
         }
 
         nettyClient = new NettyClient();
-        nettyClient.connect( host, port );
+        nettyClient.connect( host, port, callback );
     }
 
-    public void startServer( int port ) {
+    public void startServer( int port, Callback callback ) {
         type = types.SERVER;
 
         //close server connection
@@ -66,7 +67,7 @@ public class NettyHandler {
         }
 
         nettyServer = new NettyServer();
-        nettyServer.startServer( port );
+        nettyServer.startServer( port, callback );
     }
 
     public void registerPacketHandler( PacketHandler handler ) {

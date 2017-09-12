@@ -33,6 +33,14 @@ public class ClientHandler extends SimpleChannelInboundHandler<Packet> {
         Logger.log( "successfully connected to NettyServer" );
         channel = ctx.channel();
         getNettyClient().setChannel( ctx.channel() );
+
+        if ( NettyHandler.getPacketHandlers().size() > 0 ) {
+            if ( PacketHandler.packetsToSend.size() > 0 ) {
+                for ( Packet packet : PacketHandler.packetsToSend ) {
+                    NettyHandler.getPacketHandlers().get( 0 ).sendPacket( packet );
+                }
+            }
+        }
     }
 
     @Override

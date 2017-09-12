@@ -1,5 +1,6 @@
 package de.bluplayz.networkhandler.netty.server;
 
+import de.bluplayz.Callback;
 import de.bluplayz.logger.Logger;
 import de.bluplayz.networkhandler.netty.packet.PacketDecoder;
 import de.bluplayz.networkhandler.netty.packet.PacketEncoder;
@@ -39,8 +40,9 @@ public class NettyServer {
     @Getter
     private ArrayList<Channel> channels = new ArrayList<>();
 
-    public void startServer( int port ) {
+    public void startServer( int port, Callback callback ) {
         Logger.log( "starting netty server" );
+        setPort( port );
 
         if ( getFuture() != null ) {
             stopServer();
@@ -62,6 +64,7 @@ public class NettyServer {
                         } );
 
                 future = bootstrap.bind( port );
+                callback.accept();
                 future.sync().channel().closeFuture().syncUninterruptibly();
             } catch ( Exception e ) {
                 Logger.error( "failed starting netty server: " + e.getMessage() );

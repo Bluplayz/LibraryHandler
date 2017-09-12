@@ -1,3 +1,4 @@
+import de.bluplayz.Callback;
 import de.bluplayz.logger.Logger;
 import de.bluplayz.networkhandler.netty.NettyHandler;
 import de.bluplayz.networkhandler.netty.PacketHandler;
@@ -18,11 +19,17 @@ public class TestClient {
 
         //connect to netty
         nettyHandler = new NettyHandler();
-        nettyHandler.connectToServer( "localhost", 8000 );
+        nettyHandler.connectToServer( "localhost", 8000, new Callback() {
+            @Override
+            public void accept() {
+                start();
+            }
+        } );
 
-        packetHandler = new PacketHandler() {
+        nettyHandler.registerPacketHandler( packetHandler = new PacketHandler() {
             @Override
             public void incomingPacket( Packet packet, Channel channel ) {
+                Logger.debug( "DEBUG1" );
                 if ( packet instanceof EchoPacket ) {
                     EchoPacket echoPacket = (EchoPacket) packet;
                     Logger.debug( "echoPacket come back: " + echoPacket.getMessage() );
@@ -31,14 +38,10 @@ public class TestClient {
 
             @Override
             public void registerPackets() {
+                Logger.debug( "DEBUG2" );
                 registerPacket( EchoPacket.class );
             }
-        };
-
-        nettyHandler.registerPacketHandler( packetHandler );
-
-        EchoPacket packet = new EchoPacket( "Hallo, ich bims 1 coole Nachricht! xD" );
-        packetHandler.sendPacket( packet );
+        } );
 
         Logger.log( "Application loaded." );
     }
@@ -49,5 +52,10 @@ public class TestClient {
         } catch ( Exception ex ) {
             ex.printStackTrace();
         }
+    }
+
+    public void start() {
+        EchoPacket packet = new EchoPacket( "Hallo, ich bims 1 coole Nachricht! xD" );
+        getPacketHandler().sendPacket( packet );
     }
 }
