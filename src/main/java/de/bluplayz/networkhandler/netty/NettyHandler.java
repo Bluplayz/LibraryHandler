@@ -15,18 +15,14 @@ public class NettyHandler {
     private static ArrayList<PacketHandler> packetHandlers = new ArrayList<>();
     @Getter
     private static HashMap<String, Channel> clients = new HashMap<>();
-
+    @Getter
+    private static NettyHandler instance;
     @Getter
     @Setter
     private PacketHandler handler;
-
     @Getter
     @Setter
     private types type = types.CLIENT;
-
-    @Getter
-    private static NettyHandler instance;
-
     @Getter
     private NettyClient nettyClient;
     @Getter

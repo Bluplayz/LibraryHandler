@@ -38,7 +38,6 @@ public class NettyServer {
     private int port = 8000;
 
     public void startServer( int port, Callback callback ) {
-        Logger.log( "starting netty server" );
         setPort( port );
 
         if ( getFuture() != null ) {
