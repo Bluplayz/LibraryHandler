@@ -56,6 +56,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<Packet> {
                 for ( Packet packet : PacketHandler.packetsToSend ) {
                     NettyHandler.getPacketHandlers().get( 0 ).sendPacket( packet );
                 }
+                PacketHandler.packetsToSend.clear();
             }
         }
     }
