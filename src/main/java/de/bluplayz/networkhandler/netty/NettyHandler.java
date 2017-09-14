@@ -62,7 +62,7 @@ public class NettyHandler {
             nettyClient.disconnect();
 
             ArrayList<PacketHandler> handlers = (ArrayList<PacketHandler>) getConnectionListeners().clone();
-            ArrayList<ConnectionListener> listeners = (ArrayList<ConnectionListener>) getPacketHandlers().clone();
+            ArrayList<ConnectionListener> listeners = (ArrayList<ConnectionListener>) getConnectionListeners().clone();
             for ( PacketHandler handler : handlers ) {
                 unregisterPacketHandler( handler );
             }
