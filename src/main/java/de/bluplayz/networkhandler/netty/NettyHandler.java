@@ -42,35 +42,19 @@ public class NettyHandler {
     public void connectToServer( String host, int port, Callback callback ) {
         type = types.CLIENT;
 
+        unregisterAllPacketHandler();
+        unregisterAllConnectionListener();
+
         //close server connection
         if ( nettyServer != null ) {
             nettyServer.stopServer();
-
-            ArrayList<PacketHandler> handlers = (ArrayList<PacketHandler>) getConnectionListeners().clone();
-            ArrayList<ConnectionListener> listeners = (ArrayList<ConnectionListener>) getPacketHandlers().clone();
-            for ( PacketHandler handler : handlers ) {
-                unregisterPacketHandler( handler );
-            }
-
-            for ( ConnectionListener listener : listeners ) {
-                unregisterConnectionListener( listener );
-            }
         }
 
         //close client connection
         if ( nettyClient != null ) {
             nettyClient.disconnect();
-
-            ArrayList<PacketHandler> handlers = (ArrayList<PacketHandler>) getConnectionListeners().clone();
-            ArrayList<ConnectionListener> listeners = (ArrayList<ConnectionListener>) getConnectionListeners().clone();
-            for ( PacketHandler handler : handlers ) {
-                unregisterPacketHandler( handler );
-            }
-
-            for ( ConnectionListener listener : listeners ) {
-                unregisterConnectionListener( listener );
-            }
         }
+
 
         nettyClient = new NettyClient();
         nettyClient.connect( host, port, callback );
@@ -79,34 +63,17 @@ public class NettyHandler {
     public void startServer( int port, Callback callback ) {
         type = types.SERVER;
 
+        unregisterAllPacketHandler();
+        unregisterAllConnectionListener();
+
         //close server connection
         if ( nettyServer != null ) {
             nettyServer.stopServer();
-
-            ArrayList<PacketHandler> handlers = (ArrayList<PacketHandler>) getConnectionListeners().clone();
-            ArrayList<ConnectionListener> listeners = (ArrayList<ConnectionListener>) getPacketHandlers().clone();
-            for ( PacketHandler handler : handlers ) {
-                unregisterPacketHandler( handler );
-            }
-
-            for ( ConnectionListener listener : listeners ) {
-                unregisterConnectionListener( listener );
-            }
         }
 
         //close client connection
         if ( nettyClient != null ) {
             nettyClient.disconnect();
-
-            ArrayList<PacketHandler> handlers = (ArrayList<PacketHandler>) getConnectionListeners().clone();
-            ArrayList<ConnectionListener> listeners = (ArrayList<ConnectionListener>) getPacketHandlers().clone();
-            for ( PacketHandler handler : handlers ) {
-                unregisterPacketHandler( handler );
-            }
-
-            for ( ConnectionListener listener : listeners ) {
-                unregisterConnectionListener( listener );
-            }
         }
 
         nettyServer = new NettyServer();

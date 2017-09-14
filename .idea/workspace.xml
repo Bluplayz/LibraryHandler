@@ -29,13 +29,13 @@
       <file leaf-file-name="NettyHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/NettyHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="120" column="43" lean-forward="true" selection-start-line="120" selection-start-column="43" selection-end-line="120" selection-end-column="43" />
+            <state relative-caret-position="369">
+              <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding>
-                <element signature="e#4294#4295#0" expanded="true" />
-                <element signature="e#4337#4338#0" expanded="true" />
-                <element signature="e#4844#4845#0" expanded="true" />
-                <element signature="e#4892#4893#0" expanded="true" />
+                <element signature="e#2530#2531#0" expanded="true" />
+                <element signature="e#2573#2574#0" expanded="true" />
+                <element signature="e#3080#3081#0" expanded="true" />
+                <element signature="e#3128#3129#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1149,7 +1149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505407362397</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add unregisterAll Methods">
+      <created>1505408962375</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1505408962375</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1225,7 +1232,8 @@
     <MESSAGE value="fix bugs" />
     <MESSAGE value="fail" />
     <MESSAGE value="fail2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fail2" />
+    <MESSAGE value="add unregisterAll Methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="add unregisterAll Methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1464,13 +1472,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/NettyHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="120" column="43" lean-forward="true" selection-start-line="120" selection-start-column="43" selection-end-line="120" selection-end-column="43" />
+        <state relative-caret-position="369">
+          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
-            <element signature="e#4294#4295#0" expanded="true" />
-            <element signature="e#4337#4338#0" expanded="true" />
-            <element signature="e#4844#4845#0" expanded="true" />
-            <element signature="e#4892#4893#0" expanded="true" />
+            <element signature="e#2530#2531#0" expanded="true" />
+            <element signature="e#2573#2574#0" expanded="true" />
+            <element signature="e#3080#3081#0" expanded="true" />
+            <element signature="e#3128#3129#0" expanded="true" />
           </folding>
         </state>
       </provider>
