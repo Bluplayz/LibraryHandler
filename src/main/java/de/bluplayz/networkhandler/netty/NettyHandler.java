@@ -46,11 +46,13 @@ public class NettyHandler {
         if ( nettyServer != null ) {
             nettyServer.stopServer();
 
-            for ( PacketHandler handler : getPacketHandlers() ) {
+            ArrayList<PacketHandler> handlers = (ArrayList<PacketHandler>) getConnectionListeners().clone();
+            ArrayList<ConnectionListener> listeners = (ArrayList<ConnectionListener>) getPacketHandlers().clone();
+            for ( PacketHandler handler : handlers ) {
                 unregisterPacketHandler( handler );
             }
 
-            for ( ConnectionListener listener : getConnectionListeners() ) {
+            for ( ConnectionListener listener : listeners ) {
                 unregisterConnectionListener( listener );
             }
         }
@@ -59,11 +61,13 @@ public class NettyHandler {
         if ( nettyClient != null ) {
             nettyClient.disconnect();
 
-            for ( PacketHandler handler : getPacketHandlers() ) {
+            ArrayList<PacketHandler> handlers = (ArrayList<PacketHandler>) getConnectionListeners().clone();
+            ArrayList<ConnectionListener> listeners = (ArrayList<ConnectionListener>) getPacketHandlers().clone();
+            for ( PacketHandler handler : handlers ) {
                 unregisterPacketHandler( handler );
             }
 
-            for ( ConnectionListener listener : getConnectionListeners() ) {
+            for ( ConnectionListener listener : listeners ) {
                 unregisterConnectionListener( listener );
             }
         }
@@ -79,11 +83,13 @@ public class NettyHandler {
         if ( nettyServer != null ) {
             nettyServer.stopServer();
 
-            for ( PacketHandler handler : getPacketHandlers() ) {
+            ArrayList<PacketHandler> handlers = (ArrayList<PacketHandler>) getConnectionListeners().clone();
+            ArrayList<ConnectionListener> listeners = (ArrayList<ConnectionListener>) getPacketHandlers().clone();
+            for ( PacketHandler handler : handlers ) {
                 unregisterPacketHandler( handler );
             }
 
-            for ( ConnectionListener listener : getConnectionListeners() ) {
+            for ( ConnectionListener listener : listeners ) {
                 unregisterConnectionListener( listener );
             }
         }
@@ -92,11 +98,13 @@ public class NettyHandler {
         if ( nettyClient != null ) {
             nettyClient.disconnect();
 
-            for ( PacketHandler handler : getPacketHandlers() ) {
+            ArrayList<PacketHandler> handlers = (ArrayList<PacketHandler>) getConnectionListeners().clone();
+            ArrayList<ConnectionListener> listeners = (ArrayList<ConnectionListener>) getPacketHandlers().clone();
+            for ( PacketHandler handler : handlers ) {
                 unregisterPacketHandler( handler );
             }
 
-            for ( ConnectionListener listener : getConnectionListeners() ) {
+            for ( ConnectionListener listener : listeners ) {
                 unregisterConnectionListener( listener );
             }
         }
