@@ -1,6 +1,7 @@
 package de.bluplayz.networkhandler.netty.client;
 
 import de.bluplayz.logger.Logger;
+import de.bluplayz.networkhandler.netty.ConnectionListener;
 import de.bluplayz.networkhandler.netty.NettyHandler;
 import de.bluplayz.networkhandler.netty.PacketHandler;
 import de.bluplayz.networkhandler.netty.packet.Packet;
@@ -52,6 +53,10 @@ public class ClientHandler extends SimpleChannelInboundHandler<Packet> {
                 }
             }
         }
+
+        for ( ConnectionListener handler : NettyHandler.getConnectionListeners() ) {
+            handler.channelConnected( ctx );
+        }
     }
 
     @Override
@@ -60,5 +65,9 @@ public class ClientHandler extends SimpleChannelInboundHandler<Packet> {
         nettyClient.scheduleConnect( 1000 );
         channel = null;
         getNettyClient().setChannel( null );
+
+        for ( ConnectionListener handler : NettyHandler.getConnectionListeners() ) {
+            handler.channelDisconnected( ctx );
+        }
     }
 }

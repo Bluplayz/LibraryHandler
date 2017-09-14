@@ -1,6 +1,7 @@
 package de.bluplayz.networkhandler.netty.server;
 
 import de.bluplayz.logger.Logger;
+import de.bluplayz.networkhandler.netty.ConnectionListener;
 import de.bluplayz.networkhandler.netty.NettyHandler;
 import de.bluplayz.networkhandler.netty.PacketHandler;
 import de.bluplayz.networkhandler.netty.packet.Packet;
@@ -80,6 +81,10 @@ public class ServerHandler extends SimpleChannelInboundHandler<Packet> {
         Logger.log( "Client connected successfully" );
         channel = ctx.channel();
         NettyHandler.getClients().put( "Channel" + NettyHandler.getClients().size() + 1, ctx.channel() );
+
+        for ( ConnectionListener handler : NettyHandler.getConnectionListeners() ) {
+            handler.channelConnected( ctx );
+        }
     }
 
     @Override
@@ -87,7 +92,20 @@ public class ServerHandler extends SimpleChannelInboundHandler<Packet> {
         Logger.log( "Client disconnected" );
         channel = null;
         if ( NettyHandler.getClients().containsValue( ctx.channel() ) ) {
-            NettyHandler.getClients().put( "Channel" + NettyHandler.getClients().size() + 1, ctx.channel() );
+            String name = "";
+            for ( Map.Entry entry : NettyHandler.getClients().entrySet() ) {
+                if ( entry.getValue() == ctx.channel() ) {
+                    name = (String) entry.getKey();
+                    break;
+                }
+            }
+            if ( !name.equalsIgnoreCase( "" ) ) {
+                NettyHandler.getClients().remove( name );
+            }
+        }
+
+        for ( ConnectionListener handler : NettyHandler.getConnectionListeners() ) {
+            handler.channelDisconnected( ctx );
         }
     }
 }

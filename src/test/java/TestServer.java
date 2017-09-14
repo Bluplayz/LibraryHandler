@@ -1,9 +1,11 @@
 import de.bluplayz.Callback;
 import de.bluplayz.logger.Logger;
+import de.bluplayz.networkhandler.netty.ConnectionListener;
 import de.bluplayz.networkhandler.netty.NettyHandler;
 import de.bluplayz.networkhandler.netty.PacketHandler;
 import de.bluplayz.networkhandler.netty.packet.Packet;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandlerContext;
 import packets.EchoPacket;
 
 public class TestServer {
@@ -30,6 +32,18 @@ public class TestServer {
             @Override
             public void registerPackets() {
                 registerPacket( EchoPacket.class );
+            }
+        } );
+
+        handler.registerConnectionListener( new ConnectionListener() {
+            @Override
+            public void channelConnected( ChannelHandlerContext ctx ) {
+                Logger.debug( "Channel Connected with listener :)" );
+            }
+
+            @Override
+            public void channelDisconnected( ChannelHandlerContext ctx ) {
+                Logger.debug( "Channel Disconnected with listener :)" );
             }
         } );
 

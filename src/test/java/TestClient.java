@@ -1,12 +1,13 @@
 import de.bluplayz.Callback;
 import de.bluplayz.logger.Logger;
+import de.bluplayz.networkhandler.netty.ConnectionListener;
 import de.bluplayz.networkhandler.netty.NettyHandler;
 import de.bluplayz.networkhandler.netty.PacketHandler;
 import de.bluplayz.networkhandler.netty.packet.Packet;
-import de.bluplayz.networkhandler.netty.packet.defaultpackets.DisconnectPacket;
 import de.bluplayz.networkhandler.netty.packet.defaultpackets.PacketTransferPacket;
 import de.bluplayz.networkhandler.netty.packet.defaultpackets.SetNamePacket;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandlerContext;
 import lombok.Getter;
 import packets.EchoPacket;
 
@@ -46,6 +47,18 @@ public class TestClient {
             }
         } );
 
+        nettyHandler.registerConnectionListener( new ConnectionListener() {
+            @Override
+            public void channelConnected( ChannelHandlerContext ctx ) {
+                Logger.debug( "Channel Connected with listener :)" );
+            }
+
+            @Override
+            public void channelDisconnected( ChannelHandlerContext ctx ) {
+                Logger.debug( "Channel Disconnected with listener :)" );
+            }
+        } );
+
         Logger.log( "Application loaded." );
     }
 
@@ -68,7 +81,7 @@ public class TestClient {
         targets.add( "Server75" );
         targets.add( "Server31" );
         targets.add( "Server02" );
-        PacketTransferPacket packetTransferPacket = new PacketTransferPacket( targets, new DisconnectPacket() );
+        PacketTransferPacket packetTransferPacket = new PacketTransferPacket( targets, echoPacket );
         getPacketHandler().sendPacket( packetTransferPacket );
     }
 }

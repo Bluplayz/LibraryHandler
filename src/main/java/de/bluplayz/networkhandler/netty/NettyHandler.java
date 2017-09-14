@@ -14,6 +14,8 @@ public class NettyHandler {
     @Getter
     private static ArrayList<PacketHandler> packetHandlers = new ArrayList<>();
     @Getter
+    private static ArrayList<ConnectionListener> connectionListeners = new ArrayList<>();
+    @Getter
     private static HashMap<String, Channel> clients = new HashMap<>();
     @Getter
     private static NettyHandler instance;
@@ -85,5 +87,21 @@ public class NettyHandler {
         }
 
         getPacketHandlers().remove( handler );
+    }
+
+    public void registerConnectionListener( ConnectionListener handler ) {
+        if ( getConnectionListeners().contains( handler ) ) {
+            return;
+        }
+
+        getConnectionListeners().add( handler );
+    }
+
+    public void unregisterConnectionListener( ConnectionListener handler ) {
+        if ( !getConnectionListeners().contains( handler ) ) {
+            return;
+        }
+
+        getConnectionListeners().remove( handler );
     }
 }
