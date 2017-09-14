@@ -80,17 +80,23 @@ public class ServerHandler extends SimpleChannelInboundHandler<Packet> {
     public void channelActive( ChannelHandlerContext ctx ) throws Exception {
         Logger.log( "Client connected successfully" );
         channel = ctx.channel();
-        NettyHandler.getClients().put( "Channel" + NettyHandler.getClients().size() + 1, ctx.channel() );
 
         for ( ConnectionListener handler : NettyHandler.getConnectionListeners() ) {
             handler.channelConnected( ctx );
         }
+
+        NettyHandler.getClients().put( "Channel" + NettyHandler.getClients().size() + 1, ctx.channel() );
     }
 
     @Override
     public void channelInactive( ChannelHandlerContext ctx ) throws Exception {
         Logger.log( "Client disconnected" );
         channel = null;
+
+        for ( ConnectionListener handler : NettyHandler.getConnectionListeners() ) {
+            handler.channelDisconnected( ctx );
+        }
+
         if ( NettyHandler.getClients().containsValue( ctx.channel() ) ) {
             String name = "";
             for ( Map.Entry entry : NettyHandler.getClients().entrySet() ) {
@@ -102,10 +108,6 @@ public class ServerHandler extends SimpleChannelInboundHandler<Packet> {
             if ( !name.equalsIgnoreCase( "" ) ) {
                 NettyHandler.getClients().remove( name );
             }
-        }
-
-        for ( ConnectionListener handler : NettyHandler.getConnectionListeners() ) {
-            handler.channelDisconnected( ctx );
         }
     }
 }
