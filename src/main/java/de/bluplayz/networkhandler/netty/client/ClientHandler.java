@@ -63,7 +63,6 @@ public class ClientHandler extends SimpleChannelInboundHandler<Packet> {
     @Override
     public void channelInactive( ChannelHandlerContext ctx ) throws Exception {
         Logger.log( "disconnected from NettyServer" );
-        nettyClient.scheduleConnect( 1000 );
         channel = null;
 
         for ( ConnectionListener handler : NettyHandler.getConnectionListeners() ) {

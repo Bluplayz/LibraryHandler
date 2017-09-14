@@ -45,11 +45,27 @@ public class NettyHandler {
         //close server connection
         if ( nettyServer != null ) {
             nettyServer.stopServer();
+
+            for ( PacketHandler handler : getPacketHandlers() ) {
+                unregisterPacketHandler( handler );
+            }
+
+            for ( ConnectionListener listener : getConnectionListeners() ) {
+                unregisterConnectionListener( listener );
+            }
         }
 
         //close client connection
         if ( nettyClient != null ) {
             nettyClient.disconnect();
+
+            for ( PacketHandler handler : getPacketHandlers() ) {
+                unregisterPacketHandler( handler );
+            }
+
+            for ( ConnectionListener listener : getConnectionListeners() ) {
+                unregisterConnectionListener( listener );
+            }
         }
 
         nettyClient = new NettyClient();
@@ -62,11 +78,27 @@ public class NettyHandler {
         //close server connection
         if ( nettyServer != null ) {
             nettyServer.stopServer();
+
+            for ( PacketHandler handler : getPacketHandlers() ) {
+                unregisterPacketHandler( handler );
+            }
+
+            for ( ConnectionListener listener : getConnectionListeners() ) {
+                unregisterConnectionListener( listener );
+            }
         }
 
         //close client connection
         if ( nettyClient != null ) {
             nettyClient.disconnect();
+
+            for ( PacketHandler handler : getPacketHandlers() ) {
+                unregisterPacketHandler( handler );
+            }
+
+            for ( ConnectionListener listener : getConnectionListeners() ) {
+                unregisterConnectionListener( listener );
+            }
         }
 
         nettyServer = new NettyServer();
