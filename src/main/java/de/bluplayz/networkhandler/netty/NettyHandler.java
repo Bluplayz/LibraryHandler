@@ -129,6 +129,10 @@ public class NettyHandler {
         getPacketHandlers().remove( handler );
     }
 
+    public void unregisterAllPacketHandler() {
+        getPacketHandlers().clear();
+    }
+
     public void registerConnectionListener( ConnectionListener handler ) {
         if ( getConnectionListeners().contains( handler ) ) {
             return;
@@ -143,5 +147,9 @@ public class NettyHandler {
         }
 
         getConnectionListeners().remove( handler );
+    }
+
+    public void unregisterAllConnectionListener() {
+        getConnectionListeners().clear();
     }
 }

@@ -29,9 +29,14 @@
       <file leaf-file-name="NettyHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/NettyHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="64" column="110" lean-forward="false" selection-start-line="64" selection-start-column="110" selection-end-line="64" selection-end-column="110" />
-              <folding />
+            <state relative-caret-position="131">
+              <caret line="120" column="43" lean-forward="true" selection-start-line="120" selection-start-column="43" selection-end-line="120" selection-end-column="43" />
+              <folding>
+                <element signature="e#4294#4295#0" expanded="true" />
+                <element signature="e#4337#4338#0" expanded="true" />
+                <element signature="e#4844#4845#0" expanded="true" />
+                <element signature="e#4892#4893#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1137,7 +1142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505407218213</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fail2">
+      <created>1505407362397</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1505407362397</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1212,7 +1224,8 @@
     <MESSAGE value="bugfix" />
     <MESSAGE value="fix bugs" />
     <MESSAGE value="fail" />
-    <option name="LAST_COMMIT_MESSAGE" value="fail" />
+    <MESSAGE value="fail2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fail2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1451,9 +1464,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/NettyHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="64" column="110" lean-forward="false" selection-start-line="64" selection-start-column="110" selection-end-line="64" selection-end-column="110" />
-          <folding />
+        <state relative-caret-position="131">
+          <caret line="120" column="43" lean-forward="true" selection-start-line="120" selection-start-column="43" selection-end-line="120" selection-end-column="43" />
+          <folding>
+            <element signature="e#4294#4295#0" expanded="true" />
+            <element signature="e#4337#4338#0" expanded="true" />
+            <element signature="e#4844#4845#0" expanded="true" />
+            <element signature="e#4892#4893#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
