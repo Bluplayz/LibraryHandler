@@ -2,6 +2,7 @@ package de.bluplayz.networkhandler.netty;
 
 import de.bluplayz.networkhandler.netty.packet.Packet;
 import de.bluplayz.networkhandler.netty.packet.defaultpackets.DisconnectPacket;
+import de.bluplayz.networkhandler.netty.packet.defaultpackets.SetNamePacket;
 import io.netty.channel.Channel;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public abstract class PacketHandler {
     public PacketHandler() {
         //register default packets
         PACKETS.add( DisconnectPacket.class );
+        PACKETS.add( SetNamePacket.class );
 
         registerPackets();
     }
@@ -27,12 +29,12 @@ public abstract class PacketHandler {
 
             sendPacket( packet, NettyHandler.getInstance().getNettyClient().getChannel() );
         } else {
-            if ( NettyHandler.getInstance().getNettyServer().getChannels().size() == 0 ) {
+            if ( NettyHandler.getClients().size() == 0 ) {
                 packetsToSend.add( packet );
                 return;
             }
 
-            for ( Channel channel : NettyHandler.getInstance().getNettyServer().getChannels() ) {
+            for ( Channel channel : NettyHandler.getClients().values() ) {
                 sendPacket( packet, channel );
             }
         }

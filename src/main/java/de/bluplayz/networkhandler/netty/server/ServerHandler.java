@@ -31,15 +31,15 @@ public class ServerHandler extends SimpleChannelInboundHandler<Packet> {
     public void channelActive( ChannelHandlerContext ctx ) throws Exception {
         Logger.log( "Client connected successfully" );
         channel = ctx.channel();
-        getNettyServer().getChannels().add( ctx.channel() );
+        NettyHandler.getClients().put( "Channel" + NettyHandler.getClients().size() + 1, ctx.channel() );
     }
 
     @Override
     public void channelInactive( ChannelHandlerContext ctx ) throws Exception {
         Logger.log( "Client disconnected" );
         channel = null;
-        if ( getNettyServer().getChannels().contains( ctx.channel() ) ) {
-            getNettyServer().getChannels().remove( ctx.channel() );
+        if ( NettyHandler.getClients().containsValue( ctx.channel() ) ) {
+            NettyHandler.getClients().put( "Channel" + NettyHandler.getClients().size() + 1, ctx.channel() );
         }
     }
 }

@@ -2,6 +2,7 @@ package de.bluplayz.networkhandler.netty.server;
 
 import de.bluplayz.Callback;
 import de.bluplayz.logger.Logger;
+import de.bluplayz.networkhandler.netty.NettyHandler;
 import de.bluplayz.networkhandler.netty.packet.PacketDecoder;
 import de.bluplayz.networkhandler.netty.packet.PacketEncoder;
 import io.netty.bootstrap.ServerBootstrap;
@@ -18,7 +19,6 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -36,9 +36,6 @@ public class NettyServer {
     @Getter
     @Setter
     private int port = 8000;
-
-    @Getter
-    private ArrayList<Channel> channels = new ArrayList<>();
 
     public void startServer( int port, Callback callback ) {
         Logger.log( "starting netty server" );
@@ -80,7 +77,7 @@ public class NettyServer {
             return;
         }
 
-        for ( Channel channel : getChannels() ) {
+        for ( Channel channel : NettyHandler.getClients().values() ) {
             channel.close();
         }
 

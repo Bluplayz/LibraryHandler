@@ -3,14 +3,18 @@ package de.bluplayz.networkhandler.netty;
 import de.bluplayz.Callback;
 import de.bluplayz.networkhandler.netty.client.NettyClient;
 import de.bluplayz.networkhandler.netty.server.NettyServer;
+import io.netty.channel.Channel;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class NettyHandler {
     @Getter
     private static ArrayList<PacketHandler> packetHandlers = new ArrayList<>();
+    @Getter
+    private static HashMap<String, Channel> clients = new HashMap<>();
 
     @Getter
     @Setter
