@@ -68,6 +68,7 @@ public class NettyHandler {
 
         //close client connection
         if ( nettyClient != null ) {
+            nettyClient.disconnect();
         }
 
         nettyServer = new NettyServer();

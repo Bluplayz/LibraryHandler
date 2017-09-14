@@ -67,7 +67,7 @@ public class NettyClient {
                             }
                         } );
                 future = bootstrap.connect( host, port );
-                
+
                 callback.accept();
 
                 future.sync().channel().closeFuture().syncUninterruptibly();

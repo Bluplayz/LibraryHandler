@@ -3,9 +3,14 @@ import de.bluplayz.logger.Logger;
 import de.bluplayz.networkhandler.netty.NettyHandler;
 import de.bluplayz.networkhandler.netty.PacketHandler;
 import de.bluplayz.networkhandler.netty.packet.Packet;
+import de.bluplayz.networkhandler.netty.packet.defaultpackets.DisconnectPacket;
+import de.bluplayz.networkhandler.netty.packet.defaultpackets.PacketTransferPacket;
+import de.bluplayz.networkhandler.netty.packet.defaultpackets.SetNamePacket;
 import io.netty.channel.Channel;
 import lombok.Getter;
 import packets.EchoPacket;
+
+import java.util.ArrayList;
 
 public class TestClient {
     @Getter
@@ -29,7 +34,6 @@ public class TestClient {
         nettyHandler.registerPacketHandler( packetHandler = new PacketHandler() {
             @Override
             public void incomingPacket( Packet packet, Channel channel ) {
-                Logger.debug( "DEBUG1" );
                 if ( packet instanceof EchoPacket ) {
                     EchoPacket echoPacket = (EchoPacket) packet;
                     Logger.debug( "echoPacket come back: " + echoPacket.getMessage() );
@@ -38,7 +42,6 @@ public class TestClient {
 
             @Override
             public void registerPackets() {
-                Logger.debug( "DEBUG2" );
                 registerPacket( EchoPacket.class );
             }
         } );
@@ -55,7 +58,17 @@ public class TestClient {
     }
 
     public void start() {
-        EchoPacket packet = new EchoPacket( "Hallo, ich bims 1 coole Nachricht! xD" );
-        getPacketHandler().sendPacket( packet );
+        EchoPacket echoPacket = new EchoPacket( "Hallo, ich bims 1 reine Kartoffel!" );
+        getPacketHandler().sendPacket( echoPacket );
+
+        SetNamePacket setNamePacket = new SetNamePacket( "Server75" );
+        getPacketHandler().sendPacket( setNamePacket );
+
+        ArrayList<String> targets = new ArrayList<>();
+        targets.add( "Server75" );
+        targets.add( "Server31" );
+        targets.add( "Server02" );
+        PacketTransferPacket packetTransferPacket = new PacketTransferPacket( targets, new DisconnectPacket() );
+        getPacketHandler().sendPacket( packetTransferPacket );
     }
 }

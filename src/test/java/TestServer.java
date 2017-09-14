@@ -21,19 +21,14 @@ public class TestServer {
         handler.registerPacketHandler( new PacketHandler() {
             @Override
             public void incomingPacket( Packet packet, Channel channel ) {
-                Logger.debug( "DEBUG3" );
                 if ( packet instanceof EchoPacket ) {
                     //send back to sender
                     sendPacket( packet, channel );
-
-                    EchoPacket echoPacket = (EchoPacket) packet;
-                    Logger.debug( "echoPacket send back: " + echoPacket.getMessage() );
                 }
             }
 
             @Override
             public void registerPackets() {
-                Logger.debug( "DEBUG4" );
                 registerPacket( EchoPacket.class );
             }
         } );

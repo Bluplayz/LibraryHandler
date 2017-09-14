@@ -1,7 +1,10 @@
 package de.bluplayz.networkhandler.netty;
 
+import de.bluplayz.logger.Logger;
 import de.bluplayz.networkhandler.netty.packet.Packet;
 import de.bluplayz.networkhandler.netty.packet.defaultpackets.DisconnectPacket;
+import de.bluplayz.networkhandler.netty.packet.defaultpackets.ErrorPacket;
+import de.bluplayz.networkhandler.netty.packet.defaultpackets.PacketTransferPacket;
 import de.bluplayz.networkhandler.netty.packet.defaultpackets.SetNamePacket;
 import io.netty.channel.Channel;
 
@@ -16,6 +19,8 @@ public abstract class PacketHandler {
         //register default packets
         PACKETS.add( DisconnectPacket.class );
         PACKETS.add( SetNamePacket.class );
+        PACKETS.add( PacketTransferPacket.class );
+        PACKETS.add( ErrorPacket.class );
 
         registerPackets();
     }
@@ -40,7 +45,7 @@ public abstract class PacketHandler {
         }
     }
 
-    public void sendPacket( Packet packet, Channel channel ) {
+    public static void sendPacket( Packet packet, Channel channel ) {
         if ( channel == null ) {
             return;
         }

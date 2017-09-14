@@ -51,16 +51,11 @@ public class Cassandra {
         //init prepared statements
         prepareStatements();
 
-        //test
-        //Logger.debug( "DEBUG1: " + getAllTables().toString() );
-
         //insert
         //session.execute( insertUser.bind( UUID.randomUUID(), "Fabi Blu", 18, "Bluplayz", true ) );
 
         ResultSet rs = session.execute( selectAllUsers.bind() );
         HashMap<Integer, HashMap<String, Object>> data = getData( rs );
-
-        Logger.debug( "DEBUG2: " + data.toString() );
 
         //update( "users", "age", 15, "uuid", UUID.fromString( "8801b5d8-29bd-485c-9e0e-db6b69bf470f" ) );
         //update( "users", "age", 13 );
