@@ -37,6 +37,18 @@ public class NettyHandler {
 
     public NettyHandler() {
         instance = this;
+
+        Runtime.getRuntime().addShutdownHook( new Thread( new Runnable() {
+            @Override
+            public void run() {
+                if ( getNettyClient() != null ) {
+                    getNettyClient().disconnect();
+                }
+                if ( getNettyServer() != null ) {
+                    getNettyServer().stopServer();
+                }
+            }
+        } ) );
     }
 
     public void connectToServer( String host, int port, Callback callback ) {
