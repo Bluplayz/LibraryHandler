@@ -109,16 +109,23 @@ public class NettyClient {
     }
 
     public void disconnect() {
-        if ( getFuture() == null || getChannel() == null ) {
-            return;
+        try {
+            if ( getFuture() == null || getChannel() == null ) {
+                return;
+            }
+
+            if ( !getChannel().isActive() ) {
+                return;
+            }
+
+            getChannel().close();
+
+            channel = null;
+            future = null;
+            bootstrap = null;
+            eventLoopGroup = null;
+        } catch ( Exception ignored ) {
         }
-
-        getChannel().close();
-
-        channel = null;
-        future = null;
-        bootstrap = null;
-        eventLoopGroup = null;
     }
 
     public boolean isConnected() {
