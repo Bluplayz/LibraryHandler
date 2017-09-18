@@ -20,9 +20,13 @@ public class ClientHandler extends SimpleChannelInboundHandler<Packet> {
     @Getter
     private NettyClient nettyClient;
 
-
     public ClientHandler( NettyClient client ) {
         nettyClient = client;
+    }
+
+    @Override
+    public void exceptionCaught( ChannelHandlerContext ctx, Throwable cause ) throws Exception {
+        //super.exceptionCaught( ctx, cause );
     }
 
     protected void channelRead0( ChannelHandlerContext ctx, Packet packet ) throws Exception {

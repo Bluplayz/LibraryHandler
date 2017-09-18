@@ -28,6 +28,11 @@ public class ServerHandler extends SimpleChannelInboundHandler<Packet> {
         this.nettyServer = nettyServer;
     }
 
+    @Override
+    public void exceptionCaught( ChannelHandlerContext ctx, Throwable cause ) throws Exception {
+        //super.exceptionCaught( ctx, cause );
+    }
+
     protected void channelRead0( ChannelHandlerContext ctx, Packet packet ) throws Exception {
         for ( PacketHandler handler : NettyHandler.getPacketHandlers() ) {
             handler.incomingPacket( packet, channel );
