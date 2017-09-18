@@ -18,7 +18,7 @@ public class Logger {
             setTimeZone();
         }
 
-        System.out.println( Color.RESET + Color.CYAN + "[" + simpleDateFormat.format( new Date() ) + "] " + Color.RED + message );
+        System.out.println( Color.RESET + Color.CYAN + "[" + simpleDateFormat.format( new Date() ) + "] " + Color.RED + message + Color.WHITE );
     }
 
     /**
@@ -29,7 +29,7 @@ public class Logger {
             setTimeZone();
         }
 
-        System.out.println( Color.RESET + Color.CYAN + "[" + simpleDateFormat.format( new Date() ) + "] " + Color.RESET + message );
+        System.out.println( Color.RESET + Color.CYAN + "[" + simpleDateFormat.format( new Date() ) + "] " + Color.RESET + message + Color.WHITE );
     }
 
     /**
@@ -40,7 +40,7 @@ public class Logger {
             setTimeZone();
         }
 
-        System.out.println( Color.RESET + Color.CYAN + "[" + simpleDateFormat.format( new Date() ) + "] " + Color.RESET + message );
+        System.out.println( Color.RESET + Color.CYAN + "[" + simpleDateFormat.format( new Date() ) + "] " + Color.RESET + message + Color.WHITE );
     }
 
     /**
@@ -51,7 +51,7 @@ public class Logger {
             setTimeZone();
         }
 
-        System.out.println( Color.RESET + Color.CYAN + "[" + simpleDateFormat.format( new Date() ) + "] " + Color.RESET + Color.YELLOW + message );
+        System.out.println( Color.RESET + Color.CYAN + "[" + simpleDateFormat.format( new Date() ) + "] " + Color.RESET + Color.YELLOW + message + Color.WHITE );
     }
 
     /**
@@ -62,7 +62,7 @@ public class Logger {
             setTimeZone();
         }
 
-        System.out.println( Color.RESET + Color.CYAN + "[" + simpleDateFormat.format( new Date() ) + "] " + Color.RESET + Color.CYAN + message );
+        System.out.println( Color.RESET + Color.CYAN + "[" + simpleDateFormat.format( new Date() ) + "] " + Color.RESET + Color.CYAN + message + Color.WHITE );
     }
 
     /**

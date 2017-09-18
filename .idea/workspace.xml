@@ -8,7 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="83f838a1-c003-46ca-bcd0-432deaa8bf3d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/client/NettyClient.java" afterPath="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/client/NettyClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/de/bluplayz/logger/Logger.java" afterPath="$PROJECT_DIR$/src/main/java/de/bluplayz/logger/Logger.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,18 +45,30 @@
             <state relative-caret-position="527">
               <caret line="51" column="88" lean-forward="false" selection-start-line="51" selection-start-column="88" selection-end-line="51" selection-end-column="88" />
               <folding>
-                <element signature="e#1829#2330#0" expanded="true" />
-                <element signature="e#2329#2330#0" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NettyClient.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NettyClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/client/NettyClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="25" column="73" lean-forward="true" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
+              <folding>
+                <element signature="e#3229#3643#0" expanded="true" />
+                <element signature="e#3642#3643#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Logger.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/logger/Logger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -67,11 +79,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="731">
               <caret line="43" column="77" lean-forward="false" selection-start-line="43" selection-start-column="77" selection-end-line="43" selection-end-column="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#840#841#0" expanded="true" />
-                <element signature="e#876#877#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -81,7 +89,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="14" column="71" lean-forward="false" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,7 +114,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
               <caret line="40" column="69" lean-forward="false" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#581#703#0" expanded="false" />
+                <element signature="e#702#703#0" expanded="false" />
+                <element signature="e#1110#1111#0" expanded="false" />
+                <element signature="e#1176#1177#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,7 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/logger/Logger.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/packet/Packet.java" />
         <option value="$PROJECT_DIR$/src/test/java/packet/ServerChangePacket.java" />
         <option value="$PROJECT_DIR$/src/test/java/packet/Packet.java" />
@@ -209,6 +224,7 @@
         <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/client/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/NettyHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/client/NettyClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/logger/Logger.java" />
       </list>
     </option>
   </component>
@@ -572,6 +588,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LibraryHandler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LibraryHandler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="de" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bluplayz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logger" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1062,7 +1112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505750715955</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fix bugs">
+      <created>1505750976671</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1505750976671</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1144,7 +1201,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/old/netty/packet/Packet.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/packet/defaultpackets/PingPacket.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-buffer/4.1.13.Final/netty-buffer-4.1.13.Final.jar!/io/netty/buffer/ByteBuf.class" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/logger/Logger.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.13.Final/netty-transport-4.1.13.Final.jar!/io/netty/channel/ChannelHandlerContext.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.13.Final/netty-transport-4.1.13.Final.jar!/io/netty/channel/Channel.class" />
     <entry file="file://$PROJECT_DIR$/LibraryHandler.iml">
@@ -1187,6 +1243,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="66" lean-forward="false" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,7 +1350,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="40" column="69" lean-forward="false" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#581#703#0" expanded="false" />
+            <element signature="e#702#703#0" expanded="false" />
+            <element signature="e#1110#1111#0" expanded="false" />
+            <element signature="e#1176#1177#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1312,7 +1375,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="14" column="71" lean-forward="false" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1327,11 +1392,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
           <caret line="43" column="77" lean-forward="false" selection-start-line="43" selection-start-column="77" selection-end-line="43" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1340,8 +1401,7 @@
         <state relative-caret-position="527">
           <caret line="51" column="88" lean-forward="false" selection-start-line="51" selection-start-column="88" selection-end-line="51" selection-end-column="88" />
           <folding>
-            <element signature="e#1829#2330#0" expanded="true" />
-            <element signature="e#2329#2330#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1358,8 +1418,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/client/NettyClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="25" column="73" lean-forward="true" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
+          <folding>
+            <element signature="e#3229#3643#0" expanded="true" />
+            <element signature="e#3642#3643#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/logger/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
           <folding />
         </state>
       </provider>
