@@ -45,7 +45,7 @@ public class NettyClient {
     private Channel channel;
 
     public NettyClient() {
-        Logger.log( "connecting to netty" );
+        //Logger.log( "connecting to netty" );
     }
 
     public void connect( String host, int port, Callback callback ) {

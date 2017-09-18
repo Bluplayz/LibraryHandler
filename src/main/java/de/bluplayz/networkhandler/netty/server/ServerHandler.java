@@ -78,7 +78,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<Packet> {
 
     @Override
     public void channelActive( ChannelHandlerContext ctx ) throws Exception {
-        Logger.log( "Client connected successfully" );
+        //Logger.log( "Client connected successfully" );
         channel = ctx.channel();
 
         for ( ConnectionListener handler : NettyHandler.getConnectionListeners() ) {
@@ -90,7 +90,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<Packet> {
 
     @Override
     public void channelInactive( ChannelHandlerContext ctx ) throws Exception {
-        Logger.log( "Client disconnected" );
+        //Logger.log( "Client disconnected" );
         channel = null;
 
         for ( ConnectionListener handler : NettyHandler.getConnectionListeners() ) {
