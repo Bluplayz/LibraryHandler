@@ -1,6 +1,5 @@
 package de.bluplayz.networkhandler.netty.server;
 
-import de.bluplayz.logger.Logger;
 import de.bluplayz.networkhandler.netty.ConnectionListener;
 import de.bluplayz.networkhandler.netty.NettyHandler;
 import de.bluplayz.networkhandler.netty.PacketHandler;

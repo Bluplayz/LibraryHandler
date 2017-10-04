@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class NettyHandler {
     @Getter
@@ -29,11 +30,6 @@ public class NettyHandler {
     private NettyClient nettyClient;
     @Getter
     private NettyServer nettyServer;
-
-    public enum types {
-        SERVER,
-        CLIENT
-    }
 
     public NettyHandler() {
         instance = this;
@@ -130,5 +126,20 @@ public class NettyHandler {
 
     public void unregisterAllConnectionListener() {
         getConnectionListeners().clear();
+    }
+
+    public String getClientnameByChannel( Channel channel ) {
+        for ( Map.Entry entry : clients.entrySet() ) {
+            if ( entry.getValue() == channel ) {
+                return (String) entry.getKey();
+            }
+        }
+
+        return "";
+    }
+
+    public enum types {
+        SERVER,
+        CLIENT
     }
 }
