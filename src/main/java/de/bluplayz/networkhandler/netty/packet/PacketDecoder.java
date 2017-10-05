@@ -20,11 +20,10 @@ public class PacketDecoder extends ByteToMessageDecoder {
         }
 
         Packet packet = packetClass.newInstance();
-        packet.read( byteBuf );
-
         int length = byteBuf.readInt();
         packet.uniqueId = UUID.fromString( (String) byteBuf.readCharSequence( length, Charsets.UTF_8 ) );
 
+        packet.read( byteBuf );
         output.add( packet );
     }
 }
