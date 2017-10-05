@@ -1,11 +1,13 @@
 package de.bluplayz.networkhandler.netty.packet;
 
+import com.google.common.base.Charsets;
 import de.bluplayz.networkhandler.netty.PacketHandler;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 
 import java.util.List;
+import java.util.UUID;
 
 public class PacketDecoder extends ByteToMessageDecoder {
     @Override
@@ -19,6 +21,10 @@ public class PacketDecoder extends ByteToMessageDecoder {
 
         Packet packet = packetClass.newInstance();
         packet.read( byteBuf );
+
+        int length = byteBuf.readInt();
+        packet.uniqueId = UUID.fromString( (String) byteBuf.readCharSequence( length, Charsets.UTF_8 ) );
+
         output.add( packet );
     }
 }

@@ -1,9 +1,12 @@
 package de.bluplayz.networkhandler.netty.packet;
 
+import com.google.common.base.Charsets;
 import de.bluplayz.networkhandler.netty.PacketHandler;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
+
+import java.util.UUID;
 
 public class PacketEncoder extends MessageToByteEncoder<Packet> {
     @Override
@@ -13,7 +16,11 @@ public class PacketEncoder extends MessageToByteEncoder<Packet> {
             throw new NullPointerException( "Couldn't find id of packet " + packet.getClass().getSimpleName() );
         }
 
+        UUID uuid = packet.getUniqueId();
+
         byteBuf.writeInt( id );
+        byteBuf.writeInt( uuid.toString().length() );
+        byteBuf.writeCharSequence( uuid.toString(), Charsets.UTF_8 );
         packet.write( byteBuf );
     }
 }

@@ -41,6 +41,8 @@ public class ServerHandler extends SimpleChannelInboundHandler<Packet> {
             channel.close();
         }
 
+        NettyHandler.getInstance().runPacketCallbacks( packet );
+
         if ( packet instanceof SetNamePacket ) {
             SetNamePacket setNamePacket = (SetNamePacket) packet;
 

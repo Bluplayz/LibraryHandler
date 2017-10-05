@@ -1,6 +1,5 @@
 package de.bluplayz.networkhandler.netty;
 
-import de.bluplayz.logger.Logger;
 import de.bluplayz.networkhandler.netty.packet.Packet;
 import de.bluplayz.networkhandler.netty.packet.defaultpackets.DisconnectPacket;
 import de.bluplayz.networkhandler.netty.packet.defaultpackets.ErrorPacket;
@@ -25,6 +24,14 @@ public abstract class PacketHandler {
         registerPackets();
     }
 
+    public static void sendPacket( Packet packet, Channel channel ) {
+        if ( channel == null ) {
+            return;
+        }
+
+        channel.writeAndFlush( packet, channel.voidPromise() );
+    }
+
     public void sendPacket( Packet packet ) {
         if ( NettyHandler.getInstance().getType() == NettyHandler.types.CLIENT ) {
             if ( NettyHandler.getInstance().getNettyClient().getChannel() == null ) {
@@ -43,14 +50,6 @@ public abstract class PacketHandler {
                 sendPacket( packet, channel );
             }
         }
-    }
-
-    public static void sendPacket( Packet packet, Channel channel ) {
-        if ( channel == null ) {
-            return;
-        }
-
-        channel.writeAndFlush( packet, channel.voidPromise() );
     }
 
     public abstract void incomingPacket( Packet packet, Channel channel );

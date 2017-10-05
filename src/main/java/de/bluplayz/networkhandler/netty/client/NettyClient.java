@@ -99,7 +99,7 @@ public class NettyClient {
                         Logger.log( "reconnecting..." );
                         connect( getHost(), getPort(), new Callback() {
                             @Override
-                            public void accept() {
+                            public void accept(Object... args) {
                             }
                         } );
                     }

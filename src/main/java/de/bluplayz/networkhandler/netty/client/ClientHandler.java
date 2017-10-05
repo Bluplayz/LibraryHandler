@@ -30,6 +30,10 @@ public class ClientHandler extends SimpleChannelInboundHandler<Packet> {
     }
 
     protected void channelRead0( ChannelHandlerContext ctx, Packet packet ) throws Exception {
+        for ( PacketHandler handler : NettyHandler.getPacketHandlers() ) {
+            handler.incomingPacket( packet, channel );
+        }
+
         if ( packet instanceof ErrorPacket ) {
             String message = ( (ErrorPacket) packet ).getErrorMessage();
             Logger.error( message );
@@ -39,9 +43,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<Packet> {
             channel.close();
         }
 
-        for ( PacketHandler handler : NettyHandler.getPacketHandlers() ) {
-            handler.incomingPacket( packet, channel );
-        }
+        NettyHandler.getInstance().runPacketCallbacks( packet );
     }
 
     @Override

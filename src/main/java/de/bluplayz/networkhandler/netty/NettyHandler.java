@@ -2,6 +2,7 @@ package de.bluplayz.networkhandler.netty;
 
 import de.bluplayz.Callback;
 import de.bluplayz.networkhandler.netty.client.NettyClient;
+import de.bluplayz.networkhandler.netty.packet.Packet;
 import de.bluplayz.networkhandler.netty.server.NettyServer;
 import io.netty.channel.Channel;
 import lombok.Getter;
@@ -10,6 +11,7 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class NettyHandler {
     @Getter
@@ -30,6 +32,8 @@ public class NettyHandler {
     private NettyClient nettyClient;
     @Getter
     private NettyServer nettyServer;
+    @Getter
+    private HashMap<UUID, ArrayList<Callback>> packetCallbacks = new HashMap<>();
 
     public NettyHandler() {
         instance = this;
@@ -136,6 +140,32 @@ public class NettyHandler {
         }
 
         return "";
+    }
+
+    public void addPacketCallback( Packet packet, Callback callback ) {
+        if ( !getPacketCallbacks().containsKey( packet.getUniqueId() ) ) {
+            getPacketCallbacks().put( packet.getUniqueId(), new ArrayList<>() );
+        }
+
+        getPacketCallbacks().get( packet.getUniqueId() ).add( callback );
+    }
+
+    public void removePacketCallbacks( Packet packet ) {
+        if ( !getPacketCallbacks().containsKey( packet.getUniqueId() ) ) {
+            return;
+        }
+
+        getPacketCallbacks().remove( packet.getUniqueId() );
+    }
+
+    public void runPacketCallbacks( Packet packet ) {
+        if ( !getPacketCallbacks().containsKey( packet.getUniqueId() ) ) {
+            return;
+        }
+
+        for ( Callback callback : getPacketCallbacks().get( packet.getUniqueId() ) ) {
+            callback.accept( packet );
+        }
     }
 
     public enum types {

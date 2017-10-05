@@ -27,7 +27,7 @@ public class TestClient {
         nettyHandler = new NettyHandler();
         nettyHandler.connectToServer( "localhost", 8000, new Callback() {
             @Override
-            public void accept() {
+            public void accept( Object... args ) {
                 start();
             }
         } );

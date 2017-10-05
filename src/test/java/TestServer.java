@@ -15,7 +15,7 @@ public class TestServer {
         NettyHandler handler = new NettyHandler();
         handler.startServer( 8000, new Callback() {
             @Override
-            public void accept() {
+            public void accept(Object... args) {
                 start();
             }
         } );
