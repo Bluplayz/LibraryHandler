@@ -71,13 +71,13 @@ public class ServerHandler extends SimpleChannelInboundHandler<Packet> {
                 if ( !NettyHandler.getClients().containsKey( servername ) ) {
                     //error packet
                     ErrorPacket errorPacket = new ErrorPacket( "The target clientname '" + servername + "' was not found!" );
-                    PacketHandler.sendPacket( errorPacket, ctx.channel() );
+                    PacketHandler.sendPacketDirectly( errorPacket, ctx.channel() );
                     continue;
                 }
 
                 //transfer packet
                 Channel channel = NettyHandler.getClients().get( servername );
-                PacketHandler.sendPacket( packetTransferPacket.getPacket(), channel );
+                PacketHandler.sendPacketDirectly( packetTransferPacket.getPacket(), channel );
             }
         }
     }

@@ -24,6 +24,14 @@ public abstract class PacketHandler {
         registerPackets();
     }
 
+    public static void sendPacketDirectly( Packet packet, Channel channel ) {
+        if ( channel == null ) {
+            return;
+        }
+
+        channel.writeAndFlush( packet, channel.voidPromise() );
+    }
+
     public void sendPacket( Packet packet, Channel channel ) {
         if ( channel == null ) {
             return;
