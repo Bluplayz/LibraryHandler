@@ -24,7 +24,7 @@ public abstract class PacketHandler {
         registerPackets();
     }
 
-    public static void sendPacket( Packet packet, Channel channel ) {
+    public void sendPacket( Packet packet, Channel channel ) {
         if ( channel == null ) {
             return;
         }

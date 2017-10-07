@@ -7,16 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83f838a1-c003-46ca-bcd0-432deaa8bf3d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/bluplayz/logger/Logger.class" afterPath="$PROJECT_DIR$/target/classes/de/bluplayz/logger/Logger.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/client/ClientHandler.class" afterPath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/client/ClientHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/client/NettyClient.class" afterPath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/client/NettyClient.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/packet/Packet.class" afterPath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/packet/Packet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/packet/PacketDecoder.class" afterPath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/packet/PacketDecoder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/packet/PacketEncoder.class" afterPath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/packet/PacketEncoder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/server/NettyServer.class" afterPath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/server/NettyServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/server/ServerHandler.class" afterPath="$PROJECT_DIR$/target/classes/de/bluplayz/networkhandler/netty/server/ServerHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/packet/PacketDecoder.java" afterPath="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/packet/PacketDecoder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/PacketHandler.java" afterPath="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/PacketHandler.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -38,7 +30,7 @@
       <file leaf-file-name="NettyHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/NettyHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
+            <state relative-caret-position="2703">
               <caret line="163" column="9" lean-forward="false" selection-start-line="163" selection-start-column="9" selection-end-line="163" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -47,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PacketDecoder.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PacketDecoder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/packet/PacketDecoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+            <state relative-caret-position="357">
+              <caret line="21" column="50" lean-forward="false" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PacketHandler.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PacketHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/PacketHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            <state relative-caret-position="442">
+              <caret line="26" column="62" lean-forward="true" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -178,12 +170,12 @@
         <option value="$PROJECT_DIR$/src/test/java/TestClient.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/client/NettyClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/PacketHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/server/ServerHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/client/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/NettyHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/packet/PacketEncoder.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/packet/PacketDecoder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/PacketHandler.java" />
       </list>
     </option>
   </component>
@@ -218,9 +210,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1107,7 +1099,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507232420257</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fix bug">
+      <created>1507233385714</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1507233385714</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1130,7 +1129,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3410758" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34535453" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1168,7 +1167,8 @@
     <MESSAGE value="fix logger reset after output" />
     <MESSAGE value="update" />
     <MESSAGE value="add network packet callback" />
-    <option name="LAST_COMMIT_MESSAGE" value="add network packet callback" />
+    <MESSAGE value="fix bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1396,19 +1396,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/PacketHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/NettyHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
+        <state relative-caret-position="2703">
           <caret line="163" column="9" lean-forward="false" selection-start-line="163" selection-start-column="9" selection-end-line="163" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1428,8 +1418,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/packet/PacketDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        <state relative-caret-position="357">
+          <caret line="21" column="50" lean-forward="false" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/bluplayz/networkhandler/netty/PacketHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="62" lean-forward="true" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
